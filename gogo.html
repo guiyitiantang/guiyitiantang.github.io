@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>基本情報</title>
+<style type="text/css">
+	body{
+		width: 500px;
+		height: 800px;
+		margin:auto;
+		padding:200px;
+		font-size: 40px;
+	}
+	input,button{
+		font-size: 40px;
+	}
+	input[type=radio] {
+		-webkit-transform-origin: right bottom;
+		-webkit-transform: scale( 2 , 2 );
+	}
+	p{
+		margin: 0;
+	}
+</style>
+</head>
+
+<body>
+	<p>平成
+	<input type="number" name="year" value="13" min="13" max="30" />年
+	</p>
+	<!--<select id="year">
+		<option value="13">2001@H13</option>
+	</select>-->
+	<table width="200">
+		  <tr>
+			<td><label>
+			  <input type="radio" name="season" value="haru" id="season_0">
+			  春</label></td>
+	  </tr>
+		  <tr>
+			<td><label>
+			  <input type="radio" name="season" value="aki" id="season_1">
+			  秋</label></td>
+	  </tr>
+	</table>
+	<input type="number" name="question"  value="1" min="1" max="13"/>
+	<!--<select id="question">
+		<option value="1">1</option>
+	</select>-->
+	<button onClick="OpenPage()">確認</button>
+	<script>
+		/*
+		for(var j = 14;j < 31 ; j++)
+		{
+    		document.getElementById("year").innerHTML += '<option value="'+j+'">'+(1988+j)+'@H'+j+'</option>';
+		}
+		for(var i = 2;i < 81 ; i++)
+		{
+    		document.getElementById("question").innerHTML += '<option value="'+i+'">'+i+'</option>';
+		}
+		*/
+		function OpenPage(){
+			var y = document.getElementsByName("year")[0].value;
+			/*var s = document.querySelector('input[name="season"]:checked').value;*/
+			var schk=document.getElementsByName("season")
+			for(var x=0;x<schk.length;x++){
+				if(schk[x].checked)
+					s=schk[x].value;
+			}
+			var q = document.getElementsByName("question")[0].value
+			if(q.length<2)
+				q='0'+q;
+			if(y == 23 && s == "haru")
+				s = "toku";
+			window.open('http://www.fe-siken.com/s/kakomon/'+y+'_'+s+'/pm'+q+'.html');
+		}
+	</script>
+</body>
+</html>
