@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>基本情報</title>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
 <style type="text/css">
 	body{
 		width: 500px;
@@ -31,11 +32,8 @@
 
 <body>
 	<p>平成
-	<input type="number" name="year" value="13" min="13" max="30" />年
+	<input type="number" id="year" value="13" min="13" max="30" />年
 	</p>
-	<!--<select id="year">
-		<option value="13">2001@H13</option>
-	</select>-->
 	<table width="200">
 		  <tr>
 			<td><label>
@@ -49,23 +47,11 @@
 	  </tr>
 	</table>
 	<input type="number" name="question"  value="1" min="1" max="13"/>
-	<!--<select id="question">
-		<option value="1">1</option>
-	</select>-->
 	<button onClick="OpenPage()">確認</button>
 	<script>
-		/*
-		for(var j = 14;j < 31 ; j++)
-		{
-    		document.getElementById("year").innerHTML += '<option value="'+j+'">'+(1988+j)+'@H'+j+'</option>';
-		}
-		for(var i = 2;i < 81 ; i++)
-		{
-    		document.getElementById("question").innerHTML += '<option value="'+i+'">'+i+'</option>';
-		}
-		*/
 		function OpenPage(){
-			var y = document.getElementsByName("year")[0].value;
+			//var y = document.getElementsByName("year")[0].value;
+			var y = $('#year').val();
 			/*var s = document.querySelector('input[name="season"]:checked').value;*/
 			var schk=document.getElementsByName("season")
 			for(var x=0;x<schk.length;x++){
